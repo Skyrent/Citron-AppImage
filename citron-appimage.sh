@@ -25,6 +25,8 @@ cd ./citron
 if [ "$1" = 'v3' ]; then
 	sed -i 's/-march=[^"]*/-march=znver2/g' ./PKGBUILD
 	sudo sed -i 's/-march=x86-64 /-march=znver2 /' /etc/makepkg.conf # Do I need to do this as well?
+        sed -i 's/-mtune=[^"]*/-mtune=znver2/g' ./PKGBUILD
+	sudo sed -i 's/-mtune=generic /-mtune=znver2 /' /etc/makepkg.conf # Do I need to do this as well?
 	cat /etc/makepkg.conf
 else
 	sed -i 's/-march=[^"]*/-march=x86-64/g' ./PKGBUILD
