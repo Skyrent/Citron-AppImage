@@ -96,6 +96,10 @@ xvfb-run -a -- ./lib4bin -p -v -e -s -k \
 	/usr/lib/pulseaudio/* \
 	/usr/lib/alsa-lib/*
 
+# prevent external hacks
+echo 'unset LD_LIBRARY_PATH
+unset LD_PRELOAD' > ./.env
+
 # Prepare sharun
 ln ./sharun ./AppRun
 ./sharun -g
