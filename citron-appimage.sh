@@ -13,7 +13,7 @@ if [ "$ARCH" = 'x86_64' ]; then
 	if [ "$1" = 'v3' ]; then
 		echo "Making znver2 optimized build of citron"
 		ARCH="${ARCH}_v3"
-		ARCH_FLAGS="-march=znver2 -O3"
+		ARCH_FLAGS="-march=znver2 -mtune=znver2 -O3 -mfpmath=both -pipe -fno-plt -flto"
 	else
 		echo "Making x86-64 generic build of citron"
 		ARCH_FLAGS="-march=x86-64 -mtune=generic -O3"
